@@ -1,13 +1,12 @@
 import AppRoutes from './AppRoutes'
-import Header from './components/header/Header'
-
+import { MovieProvider } from './context/MovieContext'
 
 function App() {
 
   return (
-    <>
+    <MovieProvider>
       <AppRoutes/>
-    </>
+    </MovieProvider>
   )
 }
 

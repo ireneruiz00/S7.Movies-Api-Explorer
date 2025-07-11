@@ -12,3 +12,10 @@ export interface MovieListResponse {
   total_pages: number;
   total_results: number;
 }
+
+export interface MovieContextProps {
+  movies: Movie[];
+  fetchNextPage: () => void;
+  hasNextPage: boolean;
+  isFetching: boolean;
+}

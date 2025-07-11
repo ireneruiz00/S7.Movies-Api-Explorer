@@ -1,18 +1,45 @@
 import MovieCard from "./MovieCard";
-import { usePopularMovies } from "../../hooks/usePopularMovies";
+import { useMovies } from "../../context/MovieContext";
+import { useEffect, useRef } from "react";
 
 function MoviesGrid() {
-    const { data, isLoading, error } = usePopularMovies(1);
+    const { movies, fetchNextPage, hasNextPage, isFetching  } = useMovies()
+    const observerRef = useRef<HTMLDivElement | null>(null);
 
-    if (isLoading) return <p className="text-center text-yellow-400 mt-8">Loading movies...</p>;
-    if (error) return <p className="text-center text-yellow-400 mt-8">Error: {error.message}</p>;
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+        entries => {
+            if (entries[0].isIntersecting && hasNextPage) {
+            fetchNextPage();
+            }
+        },
+        { threshold: 0.8 }
+        );
+
+        if (observerRef.current) observer.observe(observerRef.current);
+
+        return () => {
+        if (observerRef.current) observer.unobserve(observerRef.current);
+        };
+    }, [fetchNextPage, hasNextPage]);
 
   return (
-    <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 p-4">
-      {data?.results.map(movie => (
-        <MovieCard key={movie.id} movie={movie} />
-      ))}
-    </div>
+    <>
+      <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 gap-6 p-4">
+        {movies.map(movie => (
+          <MovieCard key={movie.id} movie={movie} />
+        ))}
+      </div>
+
+      {isFetching && (
+                <div className="flex justify-center items-center py-8">
+                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-400"></div>
+                    <p className="ml-3 text-yellow-400">Loading more movies...</p>
+                </div>
+      )}
+
+      <div ref={observerRef} className="h-10" aria-hidden="true"></div>
+    </>
   )
 }
 
