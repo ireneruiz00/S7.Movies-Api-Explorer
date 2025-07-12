@@ -1,7 +1,8 @@
+import MovieDetails from "./MovieDetails"
 
 function MovieDetailsPage() {
   return (
-    <div>MovieDetailsPage</div>
+    <MovieDetails/>
   )
 }
 

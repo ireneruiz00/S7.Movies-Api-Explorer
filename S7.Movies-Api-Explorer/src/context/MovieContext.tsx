@@ -7,7 +7,7 @@ const MovieContext = createContext<MovieContextProps | undefined>(undefined);
 
 export function MovieProvider({ children }: { children: React.ReactNode }) {
   const { data, fetchNextPage, hasNextPage, isFetching } = useInfiniteQuery ({
-    queryKey: ['popularMovies'],
+    queryKey: ['discoverMovies'],
     queryFn: ({ pageParam = 1 }) => getPopularMovies({pageParam}),
     getNextPageParam: (lastPage) => {
       if (lastPage.page < lastPage.total_pages) return lastPage.page + 1;
@@ -15,7 +15,8 @@ export function MovieProvider({ children }: { children: React.ReactNode }) {
     },
     initialPageParam: 1
   });
-  const movies = data?.pages.flatMap(page => page.results) ?? [];
+  const movies = data?.pages
+    .flatMap(page => page.results) ?? [];
 
   const uniqueMovies = Array.from(new Map(movies.map(m => [m.id, m])).values());
 

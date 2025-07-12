@@ -12,7 +12,7 @@ function AppRoutes() {
         <Route path='/login' element={<LoginPage/>}/>
         <Route element={<Layout/>}>
             <Route path='/movies' element={<MoviesGrid/>}/>
-            <Route path='/details' element={<MovieDetailsPage/>}/>
+            <Route path='/movies/:id' element={<MovieDetailsPage/>}/>
         </Route>
     </Routes>
   )

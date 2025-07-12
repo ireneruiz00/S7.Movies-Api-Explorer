@@ -4,6 +4,7 @@ export interface Movie {
   poster_path: string;
   overview: string;
   release_date: string;
+  adult: boolean;
 }
 
 export interface MovieListResponse {
