@@ -1,5 +1,5 @@
 import MovieCard from "./MovieCard";
-import { useMovies } from "../../context/MovieContext";
+import { useMovies } from "../../context/MovieProvider";
 import { useEffect, useRef } from "react";
 
 function MoviesGrid() {

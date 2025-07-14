@@ -1,5 +1,5 @@
 import AppRoutes from './AppRoutes'
-import { MovieProvider } from './context/MovieContext'
+import { MovieProvider } from './context/MovieProvider'
 
 function App() {
 
