@@ -1,11 +1,12 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useMovieDetails, useMovieCredits } from "../../hooks/usePopularMovies";
 import { useEffect } from "react";
 
 function MovieDetails() {
   const { id } = useParams(); // extreu l'id de la URL
-  const { data: movie, isLoading } = useMovieDetails(id!);
-  const { data: credits, isError, error } = useMovieCredits(id!);
+  const { data: movie, isLoading } = useMovieDetails(id!)
+  const { data: credits, isError, error } = useMovieCredits(id!)
+  const navigate = useNavigate()
 
   useEffect(() => {
   console.log("CREDITS:", credits);
@@ -13,8 +14,14 @@ function MovieDetails() {
 
     if (isError) return <p>Error: {(error as Error).message}</p>;
 
-  if (isLoading || !movie) return <p>Loading...</p>;
-
+  if (isLoading || !movie) {
+    return (
+    <div className="flex items-center justify-center mt-10">
+      <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-400"></div>
+      <p className="ml-3 text-yellow-400">Loading...</p>
+    </div>
+    )
+  }
   return (
     <div className="flex flex-col md:flex-row p-6 gap-6">
       <img className="w-full md:w-1/3 rounded-xl" src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} />
@@ -28,7 +35,8 @@ function MovieDetails() {
           <h2 className="text-xl text-yellow-300">Actors:</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 mt-2">
             {credits?.cast.slice(0, 10).map(actor => (
-                <div key={actor.id} className="flex flex-col items-center">
+                <div key={actor.id} className="flex flex-col items-center"
+                  onClick={() => navigate(`/actor/${actor.id}`)}>
                 {actor.profile_path ? (
                     <img
                     src={`https://image.tmdb.org/t/p/w185${actor.profile_path}`}

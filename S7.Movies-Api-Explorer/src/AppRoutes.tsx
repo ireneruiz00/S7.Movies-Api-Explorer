@@ -6,6 +6,7 @@ import LoginPage from "./components/authentication/LoginPage"
 import Layout from "./layouts/Layout"
 import RegisterPage from "./components/authentication/RegisterPage"
 import ProtectedRoute from "./ProtectedRoutes"
+import ActorsDetails from "./components/actorsDetailsPage/ActorsDetails"
 
 function AppRoutes() {
   return (
@@ -16,6 +17,7 @@ function AppRoutes() {
         <Route element={<Layout/>}>
             <Route path='/movies' element={<MoviesGrid/>}/>
             <Route path='/movies/:id' element={<ProtectedRoute><MovieDetailsPage/></ProtectedRoute>}/>
+            <Route path='/actor/:id'element={<ActorsDetails/>}/>
         </Route>
     </Routes>
   )

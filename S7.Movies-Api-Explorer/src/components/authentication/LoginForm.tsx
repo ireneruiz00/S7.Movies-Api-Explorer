@@ -39,11 +39,11 @@ function LoginForm() {
         onChange={(e) => setPassword(e.target.value)}
         type="password"
       />
-      <button onClick={signIn} className="bg-blue-900 text-white p-2 rounded ">
+      <button onClick={signIn} className="bg-[#00303F] text-white p-2 rounded hover:bg-yellow-400 hover:border">
         Login
       </button>
-      <span className=" flex gap-2">You don't have an account?
-        <Link to={'/signUp'} className="underline text-blue-900">Sign up here</Link>
+      <span className="flex gap-1">You don't have an account?
+        <Link to={'/signUp'} className="underline text-[#00303F]">Sign up here</Link>
       </span>
     </div>
   )

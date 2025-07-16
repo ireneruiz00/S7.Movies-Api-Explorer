@@ -7,7 +7,7 @@ interface Props {
 
 function MovieCard({movie}:Props) {
   return (
-    <div className="bg-blue-900/15 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+    <div className="bg-[#03243F] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
       <Link to={`/movies/${movie.id}`}>
         <img 
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
@@ -22,5 +22,5 @@ function MovieCard({movie}:Props) {
     </div>
   )
 }
-
+//34626C
 export default MovieCard
