@@ -1,6 +1,6 @@
 import { createContext, useContext } from 'react';
 import { useInfiniteQuery } from '@tanstack/react-query';
-import { getPopularMovies } from '../api/getMovies';
+import { getPopularMovies } from '../api/getEndpoints';
 import type { MovieContextProps } from '../types/moviesTypes';
 
 const MovieContext = createContext<MovieContextProps | undefined>(undefined);

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { getMovieDetails, getMovieCredits } from '../api/getMovies';
+import { getMovieDetails, getMovieCredits } from '../api/getEndpoints';
 import type { MovieCredits } from '../types/creditsTypes';
 // import type { MovieListResponse } from '../types/moviesTypes'; 
 

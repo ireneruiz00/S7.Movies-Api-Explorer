@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
-import { getActorsDetails } from "../../api/getMovies";
+import { getActorsDetails } from "../../api/getEndpoints";
 
 function ActorDetailsPage() {
   const { id } = useParams();

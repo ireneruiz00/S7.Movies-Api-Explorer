@@ -7,8 +7,8 @@ export function LogOutButton() {
 
    const handleLogout = async () => {
     try {
-      await signOut(auth)       // espera que Firebase tanqui sessió
-      setTimeout(() => navigate("/"), 1)             
+      await signOut(auth)                   // espera que Firebase tanqui sessió
+      setTimeout(() => navigate("/"), 1)    //temps pq renderitzi perquè no hi vagi a login         
     } catch (error) {
       console.error("Error signing out:", error)
     }

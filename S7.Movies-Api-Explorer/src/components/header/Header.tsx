@@ -1,6 +1,5 @@
 import { useAuth } from "../../context/AuthProvider"
-import LoginButton from "./LoginButton"
-import { LogOutButton } from "./LogOutButton"
+import AuthButton from "../authentication/AuthButton"
 import Navbar from "./Navbar"
 
 
@@ -12,14 +11,8 @@ function Header() {
       <div className="h-full flex items-center justify-center px-10 md:justify-between">
         <Navbar/>
         <div className="flex items-center gap-4">
-          {user ? (
-            <>
-              <span className="text-yellow-200">{user.email}</span>
-              <LogOutButton />
-            </>
-            )  : (
-              <LoginButton/>
-            )}
+          {user ? <span className="text-yellow-200">{user.email}</span> : ''}
+          <AuthButton/>
         </div>
       </div>
     </header>

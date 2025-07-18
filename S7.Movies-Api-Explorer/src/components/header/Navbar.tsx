@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom"
 
 interface Navbar {
-    isActive: boolean;
+  isActive: boolean;
 }
 
 

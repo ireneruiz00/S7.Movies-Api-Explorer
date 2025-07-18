@@ -1,13 +1,10 @@
 import { useNavigate } from "react-router-dom"
-import LoginForm from "../authentication/LoginForm"
 import search from "../../assets/search_106707.svg"
 import tmbdLogo from "../../assets/tmbdLogo.png"
-import { useAuth } from "../../context/AuthProvider"
-import { LogOutButton } from "../header/LogOutButton"
+import AuthButton from "../authentication/AuthButton"
 
 function HomePage() {
   const navigate = useNavigate()
-  const {user} = useAuth()
 
   const handleOnClick = () => {
     navigate('/movies')
@@ -25,7 +22,7 @@ function HomePage() {
         </div>
       </div>
       <div className="px-35 flex items-center">
-        {user ? <LogOutButton/> : <LoginForm/>}
+        <AuthButton/>
       </div>
     </div>
   )
