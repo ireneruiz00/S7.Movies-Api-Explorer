@@ -11,7 +11,7 @@ function Header() {
       <div className="h-full flex items-center justify-center px-10 md:justify-between">
         <Navbar/>
         <div className="flex items-center gap-4">
-          {user ? <span className="text-yellow-400">{user.email}</span> : ''}
+          {user ? <span className="text-[#00303F]">{user.email}</span> : ''}
           <AuthButton/>
         </div>
       </div>

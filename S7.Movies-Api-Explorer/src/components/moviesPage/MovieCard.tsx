@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom"
 import type { Movie } from "../../types/moviesTypes"
+import { motion } from "motion/react"
 
 interface Props {
     movie: Movie
@@ -7,7 +8,17 @@ interface Props {
 
 function MovieCard({movie}:Props) {
   return (
-    <div className="bg-[#03243F] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
+    <motion.div 
+    whileHover={{
+        scale: 1.05,
+        boxShadow: "0px 8px 24px rgba(0,0,0,0.4)",
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 200,
+        damping: 15,
+      }}
+      className="bg-[#34626C] rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-shadow duration-300">
       <Link to={`/movies/${movie.id}`}>
         <img 
           src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`} 
@@ -16,11 +27,12 @@ function MovieCard({movie}:Props) {
         />
       </Link>
       <div className="p-4">
-        <h3 className="text-lg text-yellow-400 font-semibold mb-1">{movie.title}</h3>
-        <p className="text-sm text-yellow-200">{new Date(movie.release_date).getFullYear()}</p>
+        <h3 className="text-lg text-yellow-400 font-bold mb-1 text-stroke">{movie.title}</h3>
+        <p className="text-sm text-yellow-400">{new Date(movie.release_date).getFullYear()}</p>
       </div>
-    </div>
+    </motion.div>
   )
 }
-//34626C
+
 export default MovieCard
+

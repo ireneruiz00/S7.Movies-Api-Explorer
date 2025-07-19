@@ -23,14 +23,14 @@ export default function AuthButton() {
   return user ? (
     <button
       onClick={handleLogout}
-      className="bg-red-400 text-[#00303F] font-bold py-2 px-6 rounded hover:bg-red-200"
+      className="bg-[#00303F] text-[#4BBFE0] border border-[#4BBFE0] font-semibold py-2 px-6 rounded hover:bg-[#00303F]/55 text-xl"
     >
       Logout
     </button>
   ) : (
     <button
       onClick={handleLoginRedirect}
-      className="bg-yellow-400 text-[#00303F] font-bold py-2 px-6 rounded hover:bg-yellow-200"
+      className="bg-yellow-400 text-[#00303F] text-xl font-bold py-2 px-6 rounded hover:bg-[#4BBFE0]"
     >
       LOGIN
     </button>
