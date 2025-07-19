@@ -1,27 +1,11 @@
 import MovieCard from "./MovieCard";
 import { useMovies } from "../../context/MovieProvider";
-import { useEffect, useRef } from "react";
+import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
+import Loading from "../shared/Loading";
 
 function MoviesGrid() {
     const { movies, fetchNextPage, hasNextPage, isFetching  } = useMovies()
-    const observerRef = useRef<HTMLDivElement | null>(null);
-
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-        entries => {
-            if (entries[0].isIntersecting && hasNextPage) {
-            fetchNextPage();
-            }
-        },
-        { threshold: 0.8 }
-        );
-
-        if (observerRef.current) observer.observe(observerRef.current);
-
-        return () => {
-        if (observerRef.current) observer.unobserve(observerRef.current);
-        };
-    }, [fetchNextPage, hasNextPage]);
+    const observerRef = useInfiniteScroll(fetchNextPage, hasNextPage);
 
   return (
     <>
@@ -30,13 +14,8 @@ function MoviesGrid() {
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
-
-      {isFetching && (
-                <div className="flex justify-center items-center py-8">
-                    <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-yellow-400"></div>
-                    <p className="ml-3 text-yellow-400">Loading more movies...</p>
-                </div>
-      )}
+      
+      {isFetching && <Loading text="Loading more movies..."/>}
 
       <div ref={observerRef} className="h-10" aria-hidden="true"></div>
     </>
