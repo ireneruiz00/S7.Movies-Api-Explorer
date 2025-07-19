@@ -1,16 +1,12 @@
-import Header from './components/header/Header'
-import MoviesGrid from './components/moviesPage/MoviesGrid'
-
+import AppRoutes from './AppRoutes'
+import { MovieProvider } from './context/MovieProvider'
 
 function App() {
 
   return (
-    <>
-      <Header/>
-      <MoviesGrid/>
-    </>
-      
-
+    <MovieProvider>
+      <AppRoutes/>
+    </MovieProvider>
   )
 }
 
