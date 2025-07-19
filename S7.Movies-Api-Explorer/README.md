@@ -1,69 +1,63 @@
-# React + TypeScript + Vite
+# Movie Explorer (React)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Movie Explorer is a responsive web application built with React and Tailwind CSS that allows users to browse, discover, and explore detailed information about movies using The Movie Database (TMDb) API. Features include infinite scrolling, cast and crew listings, search functionality, and animated UI elements powered by Framer Motion. The app also supports basic authentication and routing for a smooth user experience.
 
-Currently, two official plugins are available:
+# Key features
+Key features include:
+  - Discover popular movies with infinite scrolling
+  - View cast and crew with detailed profiles
+  - Navigate to individual actor pages
+  - Basic authentication (login/logout)
+  - Smooth animations with Framer Motion
+  - Fully responsive design
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Tech Stack
 
-## Expanding the ESLint configuration
+- **React 19**
+- **Typescript**
+- **Vite** for fast dev environment
+- **ESLint** for linting
+- **Tailwind CSS** for utility-first styling
+- **React Router DOM**
+- **Firebase** for authentication
+- **Motion** for smooth hovers and transitions
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+# Installation
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Follow these steps to get the project running locally:
+```bash
+# 1. Clone the repository
+git clone https://github.com/ireneruiz00/S7.Movies-Api-Explorer.git
+cd S7.Movies-Api-Explorer
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+# 2. Create a .env.local file in the root directory. Add your TMDb API key and Firebase credentials:
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+env
+Copy
+Edit
+VITE_TMDB_API_KEY=your_tmdb_api_key
+VITE_FIREBASE_API_KEY=your_firebase_api_key
+... other Firebase config values
+
+# 3. Install dependencies
+npm install
+
+# 4. Start the development server
+npm run dev
 ```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+# What I learned
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+  - How to set up a modern, scalable React project using Vite, TypeScript, and Tailwind CSS.
+  - Structuring components, hooks, and context in a reusable, DRY, and maintainable way.
+  - Implementing authentication flow with Firebase (login, logout, protected routes).
+  - Using React Context to manage global state (e.g., authentication, movies pagination).
+  - Creating custom hooks like useMovies, useMovieDetails, and useMovieCredits to abstract data fetching logic and improve code reuse.
+  - Applying Framer Motion to enhance user experience with smooth animations and transitions.
+  - Designing responsive layouts that adapt based on the authentication state and screen size.
+  - Improving performance and UX with infinite scrolling using the IntersectionObserver API.
+  - Dynamically rendering movie data, cast/crew lists, and actor details with conditional logic and reusable components.
+  - Managing layout consistency and component composition via layout wrappers (<DetailsLayout />, <Layout />).
+  - Navigating with React Router to handle dynamic routes like /movies/:id and /actor/:id and using ProtectedRoute property.
+  - Debugging layout issues and fine-tuning scroll behavior for isolated UI sections.
