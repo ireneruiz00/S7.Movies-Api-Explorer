@@ -28,16 +28,17 @@ Follow these steps to get the project running locally:
 ```bash
 # 1. Clone the repository
 git clone https://github.com/ireneruiz00/S7.Movies-Api-Explorer.git
-cd S7.Movies-Api-Explorer
 
-# 2. Create a .env.local file in the root directory. Add your TMDb API key and Firebase credentials:
+# 2. Navigate into the project folder
 
-env
+cd S7.Movie-Api-Explorer
+
+# 3. Create a .env.local file in the root directory. Add your TMDb API key and Firebase credentials:
+
+/env
 Copy
 Edit
 VITE_TMDB_API_KEY=your_tmdb_api_key
-VITE_FIREBASE_API_KEY=your_firebase_api_key
-... other Firebase config values
 
 # 3. Install dependencies
 npm install
