@@ -3,17 +3,7 @@ import type { FormProps } from "../../types/props"
 import AuthInput from "./AuthInput"
 
 
-function AuthForm({
-  title,
-  onSubmit,
-  error,
-  ctaText,
-  ctaLink,
-  ctaLinkText,
-  setEmail,
-  setPassword,
-  buttonText
-}: FormProps) {
+function AuthForm({ title, onSubmit, error,  ctaText,  ctaLink,  ctaLinkText,  setEmail,  setPassword,  buttonText}: FormProps) {
   return (
     <div className="flex flex-col gap-4 shadow bg-yellow-400 p-6 rounded-xl max-w-md mx-auto mt-10">
       <h2 className="text-2xl font-bold">{title}</h2>

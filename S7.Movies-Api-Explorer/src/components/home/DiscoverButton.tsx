@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom"
 import search from "../../assets/search_106707.svg"
 
 function DiscoverButton() {
-    const navigate = useNavigate()
+  const navigate = useNavigate()
 
   const handleOnClick = () => {
     navigate('/movies')

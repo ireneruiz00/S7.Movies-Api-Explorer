@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { useMovieDetails, useMovieCredits } from "../../hooks/usePopularMovies";
+import { useMovieDetails, useMovieCredits } from "../../hooks/useMovieDetails";
 import Loading from "../shared/Loading";
 import DetailsLayout from "../layouts/DetailsLayout";
 import CastList from "./CastList";

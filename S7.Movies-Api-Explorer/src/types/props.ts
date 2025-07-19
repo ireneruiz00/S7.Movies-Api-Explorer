@@ -1,4 +1,9 @@
 import type { CastMember, CrewMember } from "./creditsTypes";
+import type { Movie } from "./moviesTypes";
+
+export interface MovieProps {
+    movie: Movie
+}
 
 export interface FormProps{
     title: string;

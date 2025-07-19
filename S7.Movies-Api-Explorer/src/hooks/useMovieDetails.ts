@@ -1,14 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { getMovieDetails, getMovieCredits } from '../api/getEndpoints';
 import type { MovieCredits } from '../types/creditsTypes';
-// import type { MovieListResponse } from '../types/moviesTypes'; 
-
-// export const usePopularMovies = (page: number) => {
-//   return useQuery<MovieListResponse>({
-//     queryKey:['popularMovies', page], 
-//     queryFn:() => getPopularMovies(page),
-// })
-// }
 
 
 export const useMovieDetails = (id: string) => {
