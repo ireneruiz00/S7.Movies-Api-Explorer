@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
-import { signup } from "../../services/authServices"
 import { useRedirectPath } from "../../hooks/useRedirectPath"
+import { signup } from "../../services/authServices"
 import AuthForm from "./AuthForm"
 
 function RegisterPage() {

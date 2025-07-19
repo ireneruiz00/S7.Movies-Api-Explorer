@@ -1,7 +1,8 @@
 import MovieCard from "./MovieCard";
+import Loading from "../shared/Loading";
 import { useMovies } from "../../context/MovieProvider";
 import { useInfiniteScroll } from "../../hooks/useInfiniteScroll";
-import Loading from "../shared/Loading";
+
 
 function MoviesGrid() {
     const { movies, fetchNextPage, hasNextPage, isFetching  } = useMovies()
@@ -14,7 +15,7 @@ function MoviesGrid() {
           <MovieCard key={movie.id} movie={movie} />
         ))}
       </div>
-      
+
       {isFetching && <Loading text="Loading more movies..."/>}
 
       <div ref={observerRef} className="h-10" aria-hidden="true"></div>

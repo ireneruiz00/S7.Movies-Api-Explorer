@@ -1,12 +1,8 @@
 import { Link } from "react-router-dom"
-import type { Movie } from "../../types/moviesTypes"
+import type { MovieProps } from "../../types/props"
 import { motion } from "motion/react"
 
-interface Props {
-    movie: Movie
-}
-
-function MovieCard({movie}:Props) {
+function MovieCard({movie}: MovieProps) {
   return (
     <motion.div 
     whileHover={{
